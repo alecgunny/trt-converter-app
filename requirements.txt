@@ -4,4 +4,4 @@ tritonclient[all]
 attrs
 requests
 torch
-git+https://github.com/alec.gunny/exportlib.git@20.11
+git+https://github.com/alecgunny/exportlib.git@20.11
