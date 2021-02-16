@@ -1,0 +1,7 @@
+--extra-index-url "https://pypi.ngc.nvidia.com"
+flask
+tritonclient[all]
+attrs
+requests
+torch
+git+https://github.com/alec.gunny/exportlib.git@20.11
