@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trt-converter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trt-converter
+  template:
+    metadata:
+      labels:
+        app: trt-converter
+    spec:
+      containers:
+      - name: trt-converter
+        env:
+        - name: TAG
+          value: 20.11
+        image: alecgunny/trt-converter-app:$TAG
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        ports:
+        - containerPort: 5000
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-t4
