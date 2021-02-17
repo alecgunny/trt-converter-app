@@ -14,10 +14,15 @@ spec:
     spec:
       containers:
       - name: trt-converter
+        image: alecgunny/trt-converter-app:20.11
         env:
-        - name: TAG
-          value: 20.11
-        image: alecgunny/trt-converter-app:$TAG
+        - name: EXTRA_NV_PATHS
+          value: /usr/local/nvidia/lib64:/usr/local/nvidia/bin
+        command:
+        - /bin/bash
+        args:
+        - -c
+        - LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$EXTRA_NV_PATHS" flask run --host=0.0.0.0
         resources:
           limits:
             nvidia.com/gpu: 1
