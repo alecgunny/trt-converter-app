@@ -36,7 +36,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: trt-converter-app:20.11
+        tags: alecgunny/trt-converter-app:20.11
         build-args: |
           tag=20.11
 
